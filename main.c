@@ -1,41 +1,44 @@
 #include <stdio.h>
-
-#define ROWS 20
-#define COLS 40
-
-char canvas[ROWS][COLS];
-
-void initializeCanvas()
-{
-    int i, j;
-
-    for(i = 0; i < ROWS; i++)
-    {
-        for(j = 0; j < COLS; j++)
-        {
-            canvas[i][j] = '_';
-        }
-    }
-}
-
-void displayCanvas()
-{
-    int i, j;
-
-    for(i = 0; i < ROWS; i++)
-    {
-        for(j = 0; j < COLS; j++)
-        {
-            printf("%c", canvas[i][j]);
-        }
-        printf("\n");
-    }
-}
+#include "graphics.h"
+#include "object.h"
 
 int main()
 {
-    initializeCanvas();
-    displayCanvas();
+    int choice;
 
-    return 0;
+    initializeCanvas();
+
+    while(1)
+    {
+        printf("\n===== 2D Graphics Editor =====\n");
+        printf("1. Add Object\n");
+        printf("2. Delete Object\n");
+        printf("3. Modify Object\n");
+        printf("4. Display Picture\n");
+        printf("5. Exit\n");
+
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                addObject();
+                break;
+
+            case 2:
+                deleteObject();
+                break;
+
+            case 3:
+                modifyObject();
+                break;
+
+            case 4:
+                displayCanvas();
+                break;
+
+            case 5:
+                return 0;
+        }
+    }
 }
