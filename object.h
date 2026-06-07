@@ -8,7 +8,7 @@ typedef struct
     int id;
     int type;
     int active;
-    int params[10];
+    int p[10];
 } Object;
 
 extern Object objects[MAX_OBJECTS];
